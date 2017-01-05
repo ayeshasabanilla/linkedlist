@@ -1,6 +1,7 @@
-#include<stdio.h> 
+#include<iostream>
 #include<stdlib.h>
 #include<conio.h>
+using namespace std;
 
 struct node {
 	int data;
@@ -110,10 +111,10 @@ void display(struct node * r) {
     return;
   }
   while (r != NULL) {
-    printf("%d ", r -> data);
+	cout<<  r -> data;
     r = r -> next;
   }
-  printf("\n");
+  cout << endl;
 }
 
 void search(int val) {
@@ -122,12 +123,12 @@ void search(int val) {
   n = head;
   while (n != NULL) {
   	if (n->data == val){
-  		printf("location: %d\n",c);
+  		cout << "Location: " << c;
 	  }
     n = n -> next;
     c++;
   }
-  	printf("%d not found in the list\n", val);
+  cout << val << "not found in the list";
 }
 
 void delall(int val) {
@@ -156,52 +157,53 @@ int main() {
   
   while (1) {
   	system ("cls");
-    printf("Linked List Operations\n");
-    printf("===============\n");
-    printf("1.Insert\n");
-    printf("2.Display\n");
-    printf("3.Size\n");
-    printf("4.Delete\n");
-    printf("5.Search\n");
-    printf("6.Delete all\n");
-    printf("7.Exit\n");
-    printf("Enter your choice : ");
-    if (scanf("%d", & i) <= 0) {
-      printf("Enter only an Integer\n");
+    cout << "Linked List Operations\n";
+    cout << "===============\n";
+    cout << "1.Insert\n";
+    cout << "2.Display\n";
+    cout << "3.Size\n";
+    cout << "4.Delete\n";
+    cout << "5.Search\n";
+    cout << "6.Delete all\n";
+    cout << "7.Exit\n";
+    cout << "Enter your choice : ";
+    cin >> i;
+    if (i <= 0) {
+      cout << "Enter only an Integer\n";
       exit(0);
     } else {
       switch (i) {
       case 1:
-        printf("Enter the number to insert : ");
-        scanf("%d", & num);
+        cout << "Enter the number to insert : ";
+        cin >> num;
         insert(num);
         break;
       case 2:
         if (head == NULL) {
-          printf("List is Empty\n");
+          cout << "List is Empty\n";
         } else {
-          printf("Element(s) in the list are : ");
+          cout << "Element(s) in the list are : ";
         }
         display(n);
         break;
       case 3:
-        printf("Size of the list is %d\n", count());
+      	cout << "Size of the list is " << count();
         break;
       case 4:
         if (head == NULL)
-          printf("List is Empty\n");
+          cout << "List is Empty\n";
         else {
-          printf("Enter the number to delete : ");
-          scanf("%d", & num);
+          cout <<"Enter the number to delete : ";
+          cin >> num;
           if (ddelete(num))
-            printf("%d deleted successfully\n", num);
+            cout << "Deleted succesfully" << num;
           else
-            printf("%d not found in the list\n", num);
+            cout << "Not found on the list "<< num;
         }
         break;
-      case 5:
-      	printf("Enter the number to search : ");
-        scanf("%d", & num);
+      case 5: 
+      	cout << "Enter the number to search : ";
+        cin >> num;
         search(num);
         break;
       case 6:
@@ -210,7 +212,7 @@ int main() {
       case 7:
         return 0;
       default:
-        printf("Invalid option\n");
+        cout << "Invalid option\n";
       }
     }
     getch ();
